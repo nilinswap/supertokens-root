@@ -27,7 +27,12 @@ let idRefreshToken = response.idRefreshToken;
 let anticsrftoken = response.antiCsrfToken;
 ```
 
-
+RSR1 - every session refresh it returns a new RT and new AT but that is if previous RT was valid (i.e. either it is 
+current RT in the db or the previous one) if RT is not any of them, we throw 401 and logs out (cookie deletion part 
+is written in supertokens-node part). Also
+subsequent 
+calls of 
+getSession uses the accesstoken and not refresh token.
 
 
 
@@ -161,9 +166,17 @@ let requestBody: {
 so basically first only user is created when we call consume api, it returns user_id and we use email(userContext) 
 that we have to call /recipe/session which returns new session that we use.
 
+======================================================
+POST /recipe/session creates new session and GET /recipe/session gets session - RS1
 
 
 
+
+======================================================
+
+POST /session/verify
+
+SV1 - this is for jwt verification. so getsession get is all it is for non-jwt case.
 
 - refresh_session api - if access_token is expired, use refresh_token to generate new refresh_token and access_token. if
   not then, provide do nothing. if refresh_token is expired, clear cookies.
@@ -187,7 +200,4 @@ that we have to call /recipe/session which returns new session that we use.
 ## HOOK
 
 so we have seen createCode and ConsumeCode okayishly, next I need to look at
-- refresh session api 
-- do we attach access_token and refresh_token. 
-- verify api
 - understand some of the nuances of the code.
