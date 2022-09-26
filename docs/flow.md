@@ -199,5 +199,8 @@ SV1 - this is for jwt verification. so getsession get is all it is for non-jwt c
 
 ## HOOK
 
-so we have seen createCode and ConsumeCode okayishly, next I need to look at
-- understand some of the nuances of the code.
+- understand some nuances of the code. (coding pattern, third party libraries etc)
+- imagine how I would write the same code. how I will end-up with same codebase. Find many ways of doing this. 
+- Checkout more features and find them in code. Not to document or anything but just know how to navigate. Pick few 
+  features randomly.
+  
