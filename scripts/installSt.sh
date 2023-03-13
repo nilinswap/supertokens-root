@@ -65,9 +65,18 @@ cloneSupertokensRoot() {
   cd ~/apps
 }
 
+
+installSupertokens() {
+    sudo apt-get update
+    sudo apt-get install screen
+    cd ~/apps/supertokens-root
+    ./loadmodules
+}
+
 foreignMain() {
   cloneSupertokensRoot
   installJDK
+  installSupertokens
 }
 
 foreignMain
